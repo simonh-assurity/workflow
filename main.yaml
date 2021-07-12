@@ -1,0 +1,32 @@
+name: Basic workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+    name:
+      description: "Graduate name"
+      required: true
+      default: "Randel"
+
+jobs:
+  MyFavouriteJob:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@2
+      
+      - name: Run a one-line script
+        run:  echo "Hello, ${{github.event.inputs.name}}!"
+        
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          
+TheOneThatDoesThings:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - name: Lets see whats in our working directory
+      run: ls -a
+    - name: Print contents of the Readme
+      run: cat README.md
