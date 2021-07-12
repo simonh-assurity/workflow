@@ -12,11 +12,9 @@ jobs:
   MyFavouriteJob:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@2
-      
+      - uses: action/checkout@v2
       - name: Run a one-line script
         run:  echo "Hello, ${{github.event.inputs.name}}!"
-        
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
